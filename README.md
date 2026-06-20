@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Guliana Bakery 🎂
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-featured e-commerce website for a fictional bakery, built to demonstrate a complete customer ordering flow — from browsing products to checkout to order confirmation — along with a lightweight admin view.
 
-## Available Scripts
+**[Live Demo](https://guliana.netlify.app/)**
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Product catalog** with images, pricing, and add-to-cart functionality
+- **Shopping cart** with quantity adjustment (increase/decrease/remove) using React Context API for global state
+- **Checkout flow** that captures customer details and sends order notifications via Formspree
+- **Order confirmation page** with a dynamic order summary
+- **Custom cake request form** for bespoke orders
+- **Contact form** with live submission handling and success/error states
+- **Admin page** for viewing where orders/messages are managed
+- **Responsive design** built with Bootstrap, including scroll-triggered animations (AOS)
+- **404 page** for unmatched routes
+- **SEO basics**: custom favicon, page titles, Open Graph/Twitter meta tags for social sharing previews
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React** (functional components, hooks)
+- **React Router** for client-side routing and nested layouts
+- **Context API** for cart state management
+- **Bootstrap 5** for responsive layout and components
+- **AOS (Animate On Scroll)** for scroll-based animations
+- **Formspree** for serverless form/email handling (checkout, contact, custom cake requests)
+- **React Icons** for iconography
+- Deployed on **Netlify**, connected to GitHub for continuous deployment
 
-### `npm test`
+## Project Structure
+src/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+├── components/       # Shared layout components (Navbar, Footer, Layout)
 
-### `npm run build`
+├── context/          # Cart state (CartContext)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+├── pages/            # Route-level pages (Home, Products, Cart, Checkout, etc.)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+├── images/           # Product and hero imagery
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+└── App.js            # Route definitions
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Runs the app locally at `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## What I'd Improve Next
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Replace the Formspree-based order handling with a proper backend (Node/Express + database) so the admin dashboard can show a live, queryable list of orders instead of linking out to email
+- Add automated tests for cart logic and checkout flow
+- Swap placeholder product photography for real, professionally shot images
+- Add order status tracking (pending → confirmed → completed) visible to both customer and admin
+- Implement a proper quantity/inventory system tied to actual stock levels
 
-## Learn More
+## Notes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was built as a learning/portfolio piece to practice end-to-end e-commerce flow in React — from UI to cart logic to third-party service integration — without relying on a pre-built e-commerce framework.
