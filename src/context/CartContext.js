@@ -21,6 +21,20 @@ export function CartProvider({ children }) {
     setCart((prev) => prev.filter((i) => i.name !== name));
   };
 
+  const increaseQty = (name) => {
+    setCart((prev) =>
+      prev.map((i) => (i.name === name ? { ...i, qty: i.qty + 1 } : i))
+    );
+  };
+
+  const decreaseQty = (name) => {
+    setCart((prev) =>
+      prev
+        .map((i) => (i.name === name ? { ...i, qty: i.qty - 1 } : i))
+        .filter((i) => i.qty > 0)
+    );
+  };
+
   const clearCart = () => {
     setCart([]);
   };
@@ -29,7 +43,15 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart, cartCount }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        increaseQty,
+        decreaseQty,
+        clearCart,
+        cartCount,
+      }}
     >
       {children}
     </CartContext.Provider>

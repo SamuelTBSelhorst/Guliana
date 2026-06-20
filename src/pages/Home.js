@@ -1,11 +1,22 @@
 import React from 'react';
 import { FaBirthdayCake, FaCoffee } from 'react-icons/fa';
+import heroBg from '../images/chocolate-cake.jpg';
 
 function Home() {
   return (
     <div className="container py-5">
-      <div className="text-center mb-5" data-aos="fade-up">
-        <h1 className="display-4 fw-bold text-pink">Guliana Bakery</h1>
+      <div
+        className="text-center mb-5 py-5 px-3 position-relative"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          borderRadius: '12px',
+          color: '#fff',
+        }}
+        data-aos="fade-up"
+      >
+        <h1 className="display-4 fw-bold">Guliana Bakery</h1>
         <p className="lead">Freshly baked cakes, pastries, and coffee every day.</p>
         <button className="btn btn-pink btn-lg mt-3">Order Now</button>
       </div>

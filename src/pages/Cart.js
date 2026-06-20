@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 function Cart() {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, increaseQty, decreaseQty } = useCart();
   const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
 
   if (cart.length === 0) {
@@ -24,8 +24,26 @@ function Cart() {
           key={i}
           className="d-flex justify-content-between align-items-center card-soft p-3 mb-2"
         >
-          <span>{item.name} × {item.qty}</span>
+          <span>{item.name}</span>
+
+          <div className="d-flex align-items-center">
+            <button
+              className="btn btn-sm btn-outline-secondary"
+              onClick={() => decreaseQty(item.name)}
+            >
+              −
+            </button>
+            <span className="mx-2">{item.qty}</span>
+            <button
+              className="btn btn-sm btn-outline-secondary"
+              onClick={() => increaseQty(item.name)}
+            >
+              +
+            </button>
+          </div>
+
           <span>${(item.price * item.qty).toFixed(2)}</span>
+
           <button
             className="btn btn-sm btn-outline-danger"
             onClick={() => removeFromCart(item.name)}
